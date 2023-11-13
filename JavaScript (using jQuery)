@@ -1,0 +1,17 @@
+javascript $(document).ready(function() 
+{  $('#update-button').click(function() 
+{   var shopName = $('#shop-name').val();      
+if (shopName.length === 0)
+{       alert('Shop name cannot be empty');
+return;   
+}       
+$.ajax({ url: 'update_shop_name.php', type: 'POST', data: { shopName: shopName },       success: function(response) 
+{
+$('#updated-shop-name').text(response);   
+},      
+error: function() {     
+alert('An error occurred while updating the shop name');    
+}   
+}); 
+});
+}); 
